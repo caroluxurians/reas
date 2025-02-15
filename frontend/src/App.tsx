@@ -1,33 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import RadioButton from './components/RadioButton'
+import Select from 'react-select';
+import { regions } from './options';
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <form>
+        <h2>Jaký typ nemovitosti hledáte?</h2>
+        <div className="radio-button-wrapper">
+          <RadioButton id="house" label="Dům" icon="/src/assets/house.svg" />
+          <RadioButton id="apartment" label="Byt" icon="/src/assets/apartment.svg" />
+          <RadioButton id="building-lot" label="Stavební pozemek" icon="/src/assets/building-lot.svg" />
+        </div>
+
+        <h2>Kde se nemovitost nachází?</h2>
+        <Select options={regions} placeholder="Vyberte kraj" />
+
+      </form>
     </>
   )
 }
