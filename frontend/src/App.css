@@ -5,6 +5,18 @@
   text-align: center;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.selector-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .radio-button {
   display: flex;
   align-items: center;
@@ -14,5 +26,44 @@
 
 .radio-button-wrapper {
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.input-contact {
+  background-color: white;
+  border-radius: 5px;
+  width: 20rem;
+  height: 2rem;
+  border: none;
+  font-size: medium;
+  padding-left: 0.5rem;
+}
+
+.pagination-button {
+  color: black;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.back-arrow {
+  rotate: 180deg;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.submit-button {
+  width: 12rem;
 }
