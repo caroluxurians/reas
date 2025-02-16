@@ -55,7 +55,7 @@ function App() {
                   alt="house icon"
                   icon="/src/assets/house.svg"
                   handleChange={handleChange}
-                  value={formData.estateType === "Dům"}
+                  checked={formData.estateType === "Dům"}
                 />
                 <RadioButton
                   id="apartment"
@@ -63,7 +63,7 @@ function App() {
                   alt="apartment icon"
                   icon="/src/assets/apartment.svg"
                   handleChange={handleChange}
-                  value={formData.estateType === "Byt"}
+                  checked={formData.estateType === "Byt"}
                 />
                 <RadioButton
                   id="building-lot"
@@ -71,7 +71,7 @@ function App() {
                   alt="building lot icon"
                   icon="/src/assets/building-lot.svg"
                   handleChange={handleChange}
-                  value={formData.estateType === "Stavební pozemek"}
+                  checked={formData.estateType === "Stavební pozemek"}
                 />
               </fieldset>
             </div>
