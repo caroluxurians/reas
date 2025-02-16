@@ -5,15 +5,6 @@ import { regions, districts } from './options';
 import { useState } from 'react';
 import { Option } from './options';
 
-type FormData = {
-  estateType: string
-  region: string
-  district: string
-  fullName: string
-  phone: string
-  email: string
-}
-
 function App() {
   const [formData, setFormData] = useState({
     estateType: "",
@@ -86,7 +77,7 @@ function App() {
                   if (selectedOption) {
                     handleChange("region", selectedOption.value);
                     handleChange("district", "");
-                    setDistrictOptions(districts[selectedOption.value]);
+                    setDistrictOptions(districts[selectedOption.value as keyof typeof districts]);
                   }
                 }}
               />

@@ -2,6 +2,8 @@ const Koa = require("koa");
 const { koaBody } = require("koa-body");
 const Router = require("koa-router");
 const { MongoClient } = require("mongodb");
+const serve = require("koa-static");
+const mount = require("koa-mount");
 
 const uri = "mongodb://localhost:27017";
 const client = new MongoClient(uri);
@@ -58,6 +60,7 @@ router.post("/add", (ctx, next) => {
   next();
 });
 
+app.use(mount("/form", serve("../frontend/dist")));
 app.use(router.routes());
 
 app.listen(3000);
