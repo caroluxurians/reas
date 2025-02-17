@@ -22,20 +22,18 @@ let items = [
 ];
 
 router.get("/", (ctx, next) => {
-  ctx.body = items;
+  ctx.redirect("/chci-nabidku");
   next();
 });
 
-router.get("/mongo", async (ctx, next) => {
+router.get("/leads", async (ctx, next) => {
   let result;
   try {
     await client.connect();
-    result = await client.db("db").collection("names").find().toArray();
-    console.log(result);
+    result = await client.db("db").collection("leads").find().toArray();
   } finally {
     await client.close();
   }
-  console.log("res", result);
   ctx.body = result;
   next();
 });
@@ -60,7 +58,27 @@ router.post("/add", (ctx, next) => {
   next();
 });
 
-app.use(mount("/form", serve("../frontend/dist")));
+router.put("/lead", async (ctx, next) => {
+  try {
+    await client.connect();
+    const result = await client.db("db").collection("leads").insertOne({
+      estateType: "Dům",
+      region: "Kraj Vysočina",
+      district: "Jihlava",
+      fullName: "Jméno Příjmení",
+      phone: "777888999",
+      email: "email@email.cz",
+    });
+    console.log(result);
+  } finally {
+    await client.close();
+    ctx.response.status = 201;
+    ctx.body = `New lead added`;
+  }
+  next();
+});
+
+app.use(mount("/chci-nabidku", serve("../frontend/dist")));
 app.use(router.routes());
 
 app.listen(3000);
