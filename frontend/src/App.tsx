@@ -22,6 +22,8 @@ function App() {
   const [districtOptions, setDistrictOptions] = useState<Option[]>([]);
   const [step, setStep] = useState(1);
 
+  const paginationButtonDisabled = !formData.estateType || !formData.region || !formData.district;
+
   const handleChange = (key: string, value: string) => {
     setFormData((prev) => ({
       ...prev,
@@ -98,7 +100,12 @@ function App() {
                 }}
               />
             </div>
-            <button type="button" className="pagination-button" onClick={() => setStep(2)}>
+            <button
+              type="button"
+              className={`pagination-button ${paginationButtonDisabled ? 'pagination-button-disabled' : ''}`}
+              onClick={() => setStep(2)}
+              disabled={paginationButtonDisabled}
+            >
               Další krok
               <img src={arrow} height={20} width={20} alt="arrow icon" />
             </button>

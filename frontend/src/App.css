@@ -53,9 +53,21 @@
   justify-content: center;
 }
 
+.pagination-button-disabled {
+  pointer-events: none;
+  color: rgb(100, 91, 91);
+  background-color: rgb(171, 143, 134);
+
+  img {
+    visibility: hidden;
+  }
+}
+
 .back-arrow {
   rotate: 180deg;
 }
+
+
 
 .button-wrapper {
   display: flex;
