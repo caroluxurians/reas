@@ -44,7 +44,7 @@ function App() {
                   id="house"
                   label="Dům"
                   alt="house icon"
-                  icon="/src/assets/house.svg"
+                  icon="/house.svg"
                   handleChange={handleChange}
                   checked={formData.estateType === "Dům"}
                 />
@@ -52,7 +52,7 @@ function App() {
                   id="apartment"
                   label="Byt"
                   alt="apartment icon"
-                  icon="/src/assets/apartment.svg"
+                  icon="/apartment.svg"
                   handleChange={handleChange}
                   checked={formData.estateType === "Byt"}
                 />
@@ -60,7 +60,7 @@ function App() {
                   id="building-lot"
                   label="Stavební pozemek"
                   alt="building lot icon"
-                  icon="/src/assets/building-lot.svg"
+                  icon="/building-lot.svg"
                   handleChange={handleChange}
                   checked={formData.estateType === "Stavební pozemek"}
                 />
@@ -96,7 +96,7 @@ function App() {
             </div>
             <button type="button" className="pagination-button" onClick={() => setStep(2)}>
               Další krok
-              <img src="/src/assets/arrow.svg" height={20} width={20} alt="arrow icon" />
+              <img src="/arrow.svg" height={20} width={20} alt="arrow icon" />
             </button>
           </>
         )}
@@ -134,7 +134,7 @@ function App() {
             </div>
             <div className="button-wrapper">
               <button type="button" className="pagination-button" onClick={() => setStep(1)}>
-                <img src="/src/assets/arrow.svg" height={20} width={20} alt="arrow icon" className="back-arrow" />
+                <img src="/arrow.svg" height={20} width={20} alt="arrow icon" className="back-arrow" />
                 Předchozí krok
               </button>
               <button type="submit" className="submit-button">
