@@ -76,7 +76,7 @@ function App() {
                 />
                 <RadioButton
                   id="building-lot"
-                  label="Stavební pozemek"
+                  label={<>Stavební <br /> pozemek</>}
                   alt="building lot icon"
                   icon={buildingLot}
                   handleChange={handleChange}

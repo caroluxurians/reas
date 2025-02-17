@@ -39,11 +39,30 @@
 
 .radio-label {
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 7rem;
+  height: 7rem;
+  max-height: 7rem;
+  padding: 1rem;
+  background-color: var(--custom-light-blue);
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.radio-label:hover {
+  background-color: var(--custom-light-blue-hover);
+}
+
+.radio-input {
+  display: none;
 }
 
 .radio-button-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   border: none;
 }
 
@@ -99,4 +118,8 @@
   height: 2rem;
   padding-top: 0.5rem;
   color: red;
+}
+
+.icon {
+  fill: red;
 }

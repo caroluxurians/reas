@@ -10,10 +10,18 @@ type RadioButonProps = {
 const RadioButton = ({ id, label, checked, icon, alt, handleChange }: RadioButonProps) => {
   return (
     <div className="radio-button">
-      <input type="radio" name="estate" id={id} value={label} checked={checked} onChange={() => handleChange("estateType", label)} />
+      <input
+        type="radio"
+        name="estate"
+        id={id}
+        className="radio-input"
+        value={label}
+        checked={checked}
+        onChange={() => handleChange("estateType", label)}
+      />
       <label htmlFor={id} className="radio-label">
+        <img src={icon} height={45} width={45} alt={alt} />
         {label}
-        <img src={icon} height={40} width={40} alt={alt} />
       </label>
     </div>
   );
