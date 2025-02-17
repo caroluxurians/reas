@@ -1,14 +1,27 @@
 #root {
   max-width: 1280px;
+  background-color: var(--custom-white);
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  color: var(--custom-dark-blue);
+  border-radius: 5px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.form-wrapper {
+  width: 40rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border: 2px solid var(--custom-dark-blue);
+  border-radius: 5px;
+
 }
 
 .selector-wrapper {
@@ -31,6 +44,7 @@
 .radio-button-wrapper {
   display: flex;
   justify-content: space-between;
+  border: none;
 }
 
 .contact-wrapper {

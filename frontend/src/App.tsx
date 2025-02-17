@@ -34,7 +34,7 @@ function App() {
 
   const dev = import.meta.env.MODE === "development";
 
-  const submitForm = async () => {
+  const handleSubmit = async () => {
     const response = await fetch(dev ? "http://localhost/lead" : "/lead", {
       method: "PUT",
       body: JSON.stringify(formData),
@@ -45,7 +45,6 @@ function App() {
     if (response.status === 400) {
       setMessage(await response.text());
     }
-    console.log(response);
     if (response.ok) {
       setStep(3);
     }
@@ -53,8 +52,7 @@ function App() {
 
   return (
     <div className="form-wrapper">
-      <form className="form" action={submitForm}>
-
+      <form className="form" action={handleSubmit}>
         {step === 1 && (
           <>
             <div>
