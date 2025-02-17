@@ -60,7 +60,7 @@ function App() {
               <fieldset className="radio-button-wrapper">
                 <RadioButton
                   id="house"
-                  label="Dům"
+                  value="Dům"
                   alt="house icon"
                   icon={house}
                   handleChange={handleChange}
@@ -68,7 +68,7 @@ function App() {
                 />
                 <RadioButton
                   id="apartment"
-                  label="Byt"
+                  value="Byt"
                   alt="apartment icon"
                   icon={apartment}
                   handleChange={handleChange}
@@ -76,6 +76,7 @@ function App() {
                 />
                 <RadioButton
                   id="building-lot"
+                  value="Stavební pozemek"
                   label={<>Stavební <br /> pozemek</>}
                   alt="building lot icon"
                   icon={buildingLot}

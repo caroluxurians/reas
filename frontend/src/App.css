@@ -19,7 +19,7 @@
   padding-bottom: 3rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  border: 2px solid var(--custom-dark-blue);
+  border: 2px solid var(--custom-blue);
   border-radius: 5px;
 
 }
@@ -50,6 +50,10 @@
   background-color: var(--custom-light-blue);
   border-radius: 5px;
   font-weight: 600;
+}
+
+.radio-label-checked {
+  outline: solid 2px var(--custom-blue);
 }
 
 .radio-label:hover {

@@ -1,13 +1,16 @@
+import { JSX } from "react"
+
 type RadioButonProps = {
   id: string
-  label: string
+  value: string
+  label?: JSX.Element
   checked: boolean
   icon: string
   alt: string
   handleChange: (key: string, value: string) => void
 }
 
-const RadioButton = ({ id, label, checked, icon, alt, handleChange }: RadioButonProps) => {
+const RadioButton = ({ id, value, label, checked, icon, alt, handleChange }: RadioButonProps) => {
   return (
     <div className="radio-button">
       <input
@@ -15,13 +18,13 @@ const RadioButton = ({ id, label, checked, icon, alt, handleChange }: RadioButon
         name="estate"
         id={id}
         className="radio-input"
-        value={label}
+        value={value}
         checked={checked}
-        onChange={() => handleChange("estateType", label)}
+        onChange={() => handleChange("estateType", value)}
       />
-      <label htmlFor={id} className="radio-label">
+      <label htmlFor={id} className={checked ? "radio-label radio-label-checked" : "radio-label"}>
         <img src={icon} height={45} width={45} alt={alt} />
-        {label}
+        {label ?? value}
       </label>
     </div>
   );
