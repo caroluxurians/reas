@@ -31,10 +31,20 @@ function App() {
     }));
   };
 
-  console.log(formData)
+  const dev = import.meta.env.MODE === "development";
 
-  const submitForm = () => {
-    console.log("šubmit", formData);
+  const submitForm = async () => {
+    const response = await fetch(dev ? "http://localhost/lead" : "/lead", {
+      method: "PUT",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    console.log(response);
+    if (response.ok) {
+      setStep(3);
+    }
   }
 
   return (
@@ -155,6 +165,12 @@ function App() {
           </div>
         )}
       </form>
+      {step === 3 && (
+        <div>
+          Formulář úspěšně odeslán!
+          Děkujeme za Váš zájem
+        </div>
+      )}
     </div >
   )
 }

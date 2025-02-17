@@ -4,11 +4,18 @@ const Router = require("koa-router");
 const { MongoClient } = require("mongodb");
 const serve = require("koa-static");
 const mount = require("koa-mount");
+const cors = require("@koa/cors");
 
-const uri = "mongodb://localhost:27017";
+const uri = "mongodb://db:27017";
 const client = new MongoClient(uri);
 
 const app = new Koa();
+
+app.use(
+  cors({
+    origin: ["http://localhost:5173"], // for frontend dev
+  })
+);
 
 app.use(koaBody());
 
@@ -63,7 +70,7 @@ router.put("/lead", async (ctx, next) => {
   next();
 });
 
-app.use(mount("/chci-nabidku", serve("../frontend/dist")));
+app.use(mount("/chci-nabidku", serve("./dist")));
 app.use(router.routes());
 
 app.listen(3000);
