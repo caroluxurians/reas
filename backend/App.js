@@ -14,13 +14,6 @@ app.use(koaBody());
 
 const router = new Router();
 
-let items = [
-  { id: 100, iname: "Quartz Analog Wrist Watch", price: "US $4.99" },
-  { id: 101, iname: "Leather Peep Pump Heels", price: "US $33.56" },
-  { id: 102, iname: "Apple iPod", price: "US $219.99" },
-  { id: 103, iname: "Prince Phantom 97P Tennnis Racket", price: "US $50.00" },
-];
-
 router.get("/", (ctx, next) => {
   ctx.redirect("/chci-nabidku");
   next();
@@ -38,42 +31,34 @@ router.get("/leads", async (ctx, next) => {
   next();
 });
 
-router.post("/add", (ctx, next) => {
+router.put("/lead", async (ctx, next) => {
   if (
-    !ctx.request.body.id ||
-    !ctx.request.body.iname ||
-    !ctx.request.body.price
+    !ctx.request.body ||
+    !ctx.request.body.estateType ||
+    !ctx.request.body.region ||
+    !ctx.request.body.district ||
+    !ctx.request.body.fullName ||
+    !ctx.request.body.phone ||
+    !ctx.request.body.email
   ) {
     ctx.response.status = 400;
     ctx.body = "Please enter the data";
   } else {
-    let newItem = items.push({
-      id: ctx.request.body.id,
-      iname: ctx.request.body.iname,
-      price: ctx.request.body.price,
-    });
-    ctx.response.status = 201;
-    ctx.body = `New item = added with id: ${ctx.request.body.id} & item name: ${ctx.request.body.iname}`;
-  }
-  next();
-});
-
-router.put("/lead", async (ctx, next) => {
-  try {
-    await client.connect();
-    const result = await client.db("db").collection("leads").insertOne({
-      estateType: "Dům",
-      region: "Kraj Vysočina",
-      district: "Jihlava",
-      fullName: "Jméno Příjmení",
-      phone: "777888999",
-      email: "email@email.cz",
-    });
-    console.log(result);
-  } finally {
-    await client.close();
-    ctx.response.status = 201;
-    ctx.body = `New lead added`;
+    try {
+      await client.connect();
+      const result = await client.db("db").collection("leads").insertOne({
+        estateType: ctx.request.body.estateType,
+        region: ctx.request.body.region,
+        district: ctx.request.body.district,
+        fullName: ctx.request.body.fullName,
+        phone: ctx.request.body.phone,
+        email: ctx.request.body.email,
+      });
+    } finally {
+      await client.close();
+      ctx.response.status = 201;
+      ctx.body = `New lead added`;
+    }
   }
   next();
 });
