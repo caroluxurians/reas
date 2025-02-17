@@ -49,7 +49,21 @@ router.put("/lead", async (ctx, next) => {
     !ctx.request.body.email
   ) {
     ctx.response.status = 400;
-    ctx.body = "Please enter the data";
+    ctx.body = "Vyplňte, prosím, všechna pole";
+  } else if (
+    !/^[A-Za-zÀ-ž]+(?: [A-Za-zÀ-ž]+)+$/.test(ctx.request.body.fullName)
+  ) {
+    ctx.response.status = 400;
+    ctx.body =
+      "Neplatné jméno. Prosím, zadejte celé jméno obsahující pouze písmena a mezery.";
+  } else if (!/^\d{9}$/.test(ctx.request.body.phone)) {
+    ctx.response.status = 400;
+    ctx.body =
+      "Neplatné telefonní číslo. Prosím, zadejte 9 číslic bez mezer nebo předvolby.";
+  } else if (!/^[^@]+@[^@]+\.[^@]{2,}$/.test(ctx.request.body.email)) {
+    ctx.response.status = 400;
+    ctx.body =
+      "Neplatná e-mailová adresa. Prosím, zadejte platnou e-mailovou adresu";
   } else {
     try {
       await client.connect();

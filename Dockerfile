@@ -1,13 +1,13 @@
 FROM node:lts AS build
 WORKDIR /app
-COPY frontend/ ./
-RUN npm ci
+COPY frontend/ /app
+RUN npm install
 RUN npm run build
 
 FROM node:lts
 WORKDIR /app
 COPY backend/ /app
-RUN npm i
+RUN npm install
 COPY --from=build /app/dist /app/dist
 EXPOSE 3000
 CMD ["node", "app.js"]

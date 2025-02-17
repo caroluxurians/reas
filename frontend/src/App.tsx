@@ -21,6 +21,7 @@ function App() {
 
   const [districtOptions, setDistrictOptions] = useState<Option[]>([]);
   const [step, setStep] = useState(1);
+  const [message, setMessage] = useState("");
 
   const paginationButtonDisabled = !formData.estateType || !formData.region || !formData.district;
 
@@ -41,6 +42,9 @@ function App() {
         "Content-Type": "application/json"
       }
     });
+    if (response.status === 400) {
+      setMessage(await response.text());
+    }
     console.log(response);
     if (response.ok) {
       setStep(3);
@@ -153,6 +157,7 @@ function App() {
                 onChange={(e) => handleChange("email", e.target.value)}
               />
             </div>
+            <div className="message">{message}</div>
             <div className="button-wrapper">
               <button type="button" className="pagination-button" onClick={() => setStep(1)}>
                 <img src={arrow} height={20} width={20} alt="arrow icon" className="back-arrow" />

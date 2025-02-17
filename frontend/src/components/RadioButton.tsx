@@ -11,7 +11,7 @@ const RadioButton = ({ id, label, checked, icon, alt, handleChange }: RadioButon
   return (
     <div className="radio-button">
       <input type="radio" name="estate" id={id} value={label} checked={checked} onChange={() => handleChange("estateType", label)} />
-      <label htmlFor={id}>
+      <label htmlFor={id} className="radio-label">
         {label}
         <img src={icon} height={40} width={40} alt={alt} />
       </label>

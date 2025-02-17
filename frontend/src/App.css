@@ -24,6 +24,10 @@
   font-size: larger;
 }
 
+.radio-label {
+  cursor: pointer;
+}
+
 .radio-button-wrapper {
   display: flex;
   justify-content: space-between;
@@ -67,15 +71,18 @@
   rotate: 180deg;
 }
 
-
-
 .button-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1rem;
 }
 
 .submit-button {
   width: 12rem;
+}
+
+.message {
+  height: 2rem;
+  padding-top: 0.5rem;
+  color: red;
 }
