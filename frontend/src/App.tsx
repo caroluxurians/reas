@@ -4,6 +4,10 @@ import Select from 'react-select';
 import { regions, districts } from './options';
 import { useState } from 'react';
 import { Option } from './options';
+import house from "./img/house.svg";
+import apartment from "./img/apartment.svg";
+import buildingLot from "./img/building-lot.svg";
+import arrow from "./img/arrow.svg";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -44,7 +48,7 @@ function App() {
                   id="house"
                   label="Dům"
                   alt="house icon"
-                  icon="/house.svg"
+                  icon={house}
                   handleChange={handleChange}
                   checked={formData.estateType === "Dům"}
                 />
@@ -52,7 +56,7 @@ function App() {
                   id="apartment"
                   label="Byt"
                   alt="apartment icon"
-                  icon="/apartment.svg"
+                  icon={apartment}
                   handleChange={handleChange}
                   checked={formData.estateType === "Byt"}
                 />
@@ -60,7 +64,7 @@ function App() {
                   id="building-lot"
                   label="Stavební pozemek"
                   alt="building lot icon"
-                  icon="/building-lot.svg"
+                  icon={buildingLot}
                   handleChange={handleChange}
                   checked={formData.estateType === "Stavební pozemek"}
                 />
@@ -96,7 +100,7 @@ function App() {
             </div>
             <button type="button" className="pagination-button" onClick={() => setStep(2)}>
               Další krok
-              <img src="/arrow.svg" height={20} width={20} alt="arrow icon" />
+              <img src={arrow} height={20} width={20} alt="arrow icon" />
             </button>
           </>
         )}
@@ -134,7 +138,7 @@ function App() {
             </div>
             <div className="button-wrapper">
               <button type="button" className="pagination-button" onClick={() => setStep(1)}>
-                <img src="/arrow.svg" height={20} width={20} alt="arrow icon" className="back-arrow" />
+                <img src={arrow} height={20} width={20} alt="arrow icon" className="back-arrow" />
                 Předchozí krok
               </button>
               <button type="submit" className="submit-button">
