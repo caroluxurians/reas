@@ -163,3 +163,8 @@
   font-size: medium;
   caret-color: black;
 }
+
+.submit-message {
+  font-size: larger;
+  padding-bottom: 1rem;
+}

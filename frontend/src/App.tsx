@@ -188,9 +188,9 @@ function App() {
         )}
       </form>
       {step === 3 && (
-        <div>
-          Formulář úspěšně odeslán!
-          Děkujeme za Váš zájem
+        <div className="submit-message">
+          <p>Formulář úspěšně odeslán!</p>
+          <p>Děkujeme za Váš zájem.</p>
         </div>
       )}
     </div >
