@@ -8,6 +8,7 @@ import house from "./img/house.svg";
 import apartment from "./img/apartment.svg";
 import buildingLot from "./img/building-lot.svg";
 import arrow from "./img/arrow.svg";
+import submit from "./img/submit.svg";
 import { customStyles } from './reactSelectCustomStyles';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
   const [message, setMessage] = useState("");
 
   const paginationButtonDisabled = !formData.estateType || !formData.region || !formData.district;
+  const submitDisabled = !formData.fullName || !formData.phone || !formData.email;
 
   const handleChange = (key: string, value: string) => {
     setFormData((prev) => ({
@@ -119,7 +121,7 @@ function App() {
             <div className="button-container">
               <button
                 type="button"
-                className={`pagination-button ${paginationButtonDisabled ? 'pagination-button-disabled' : ''}`}
+                className={`pagination-button ${paginationButtonDisabled ? 'button-disabled' : ''}`}
                 onClick={() => setStep(2)}
                 disabled={paginationButtonDisabled}
               >
@@ -131,7 +133,7 @@ function App() {
         )}
 
         {step === 2 && (
-          <div>
+          <div className="contact-form-wrapper">
             <h2>Kontaktní údaje</h2>
             <div className="contact-wrapper">
               <label>Celé jméno</label>
@@ -162,6 +164,7 @@ function App() {
               />
             </div>
             <div className="message">{message}</div>
+
             <div className="button-wrapper">
               <div className="button-container">
                 <button type="button" className="pagination-button" onClick={() => setStep(1)}>
@@ -169,9 +172,13 @@ function App() {
                   Předchozí krok
                 </button>
               </div>
-
-              <button type="submit" className="submit-button">
+              <button
+                type="submit"
+                className={`pagination-button ${submitDisabled ? 'button-disabled' : ''}`}
+                disabled={submitDisabled}
+              >
                 Odeslat
+                <img src={submit} height={25} width={25} alt="submit button" />
               </button>
             </div>
           </div>

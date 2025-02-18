@@ -69,23 +69,6 @@
   margin-bottom: 2rem;
 }
 
-.contact-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  justify-items: start;
-}
-
-.input-contact {
-  background-color: white;
-  border-radius: 5px;
-  width: 20rem;
-  height: 2rem;
-  border: none;
-  font-size: medium;
-  padding-left: 0.5rem;
-}
-
 .pagination-button {
   background-color: var(--custom-blue);
   color: var(--custom-white);
@@ -101,10 +84,10 @@
   background-color: var(--custom-blue-hover);
 }
 
-.pagination-button-disabled {
+.button-disabled {
   pointer-events: none;
   color: var(--custom-white);
-  background-color: var(--custom-light-blue);
+  background-color: #77a4e0;
 }
 
 .back-arrow {
@@ -122,12 +105,33 @@
   justify-content: flex-end;
 }
 
-.submit-button {
-  width: 12rem;
-}
-
 .message {
   height: 2rem;
   padding-top: 0.5rem;
   color: red;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  justify-items: start;
+  align-items: center;
+  padding: 2rem 3rem 0rem 3rem;
+  margin-bottom: 3rem;
+}
+
+.input-contact {
+  background-color: white;
+  caret-color: black;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  width: 20rem;
+  height: 2rem;
+  font-size: medium;
+  padding-left: 0.5rem;
+}
+
+.input-contact:focus {
+  outline: 2px solid var(--custom-blue);
 }
