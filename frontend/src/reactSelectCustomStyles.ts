@@ -20,5 +20,4 @@ export const customStyles: StylesConfig<OptionType, false> = {
     paddingTop: '0px',
     paddingBottom: '0px',
   }),
-
 };
