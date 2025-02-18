@@ -127,11 +127,39 @@
   border: 1px solid #CCCCCC;
   border-radius: 5px;
   width: 20rem;
-  height: 2rem;
+  height: 2.5rem;
   font-size: medium;
   padding-left: 0.5rem;
 }
 
 .input-contact:focus {
   outline: 2px solid var(--custom-blue);
+}
+
+.phone-input-wrapper {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  width: 20rem;
+  background-color: white;
+  border: 1px solid #CCCCCC;
+  padding-left: 0.5rem;
+  border-radius: 5px;
+}
+
+.phone-input-wrapper:focus-within {
+  outline: 2px solid var(--custom-blue);
+}
+
+.prefix {
+  color: gray;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.input-phone {
+  border: none;
+  outline: none;
+  font-size: medium;
+  caret-color: black;
 }

@@ -146,14 +146,17 @@ function App() {
                 onChange={(e) => handleChange("fullName", e.target.value)}
               />
               <label>Telefonní číslo</label>
-              <input
-                type="tel"
-                pattern="^[1-9][0-9]{8}$"
-                className="input-contact"
-                required
-                value={formData.phone}
-                onChange={(e) => handleChange("phone", e.target.value)}
-              />
+              <div className="phone-input-wrapper">
+                <span className="prefix">+420</span>
+                <input
+                  type="tel"
+                  pattern="^[1-9][0-9]{8}$"
+                  className="input-phone"
+                  required
+                  value={formData.phone}
+                  onChange={(e) => handleChange("phone", e.target.value)}
+                />
+              </div>
               <label>Email</label>
               <input
                 type="email"
