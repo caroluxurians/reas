@@ -8,6 +8,7 @@ import house from "./img/house.svg";
 import apartment from "./img/apartment.svg";
 import buildingLot from "./img/building-lot.svg";
 import arrow from "./img/arrow.svg";
+import { customStyles } from './reactSelectCustomStyles';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -92,6 +93,7 @@ function App() {
                 value={regions.find(region => region.value === formData.region) || null}
                 placeholder="Vyberte kraj"
                 required
+                styles={customStyles}
                 onChange={(selectedOption) => {
                   if (selectedOption) {
                     handleChange("region", selectedOption.value);
@@ -105,6 +107,7 @@ function App() {
                 value={districtOptions?.find(district => district.value === formData.district) || null}
                 placeholder="Vyberte okres"
                 required
+                styles={customStyles}
                 isDisabled={!formData.region}
                 onChange={(selectedOption) => {
                   if (selectedOption) {
@@ -113,15 +116,17 @@ function App() {
                 }}
               />
             </div>
-            <button
-              type="button"
-              className={`pagination-button ${paginationButtonDisabled ? 'pagination-button-disabled' : ''}`}
-              onClick={() => setStep(2)}
-              disabled={paginationButtonDisabled}
-            >
-              Další krok
-              <img src={arrow} height={20} width={20} alt="arrow icon" />
-            </button>
+            <div className="button-container">
+              <button
+                type="button"
+                className={`pagination-button ${paginationButtonDisabled ? 'pagination-button-disabled' : ''}`}
+                onClick={() => setStep(2)}
+                disabled={paginationButtonDisabled}
+              >
+                <span>Další krok</span>
+                <img src={arrow} height={25} width={25} alt="arrow icon" />
+              </button>
+            </div>
           </>
         )}
 
@@ -158,10 +163,13 @@ function App() {
             </div>
             <div className="message">{message}</div>
             <div className="button-wrapper">
-              <button type="button" className="pagination-button" onClick={() => setStep(1)}>
-                <img src={arrow} height={20} width={20} alt="arrow icon" className="back-arrow" />
-                Předchozí krok
-              </button>
+              <div className="button-container">
+                <button type="button" className="pagination-button" onClick={() => setStep(1)}>
+                  <img src={arrow} height={20} width={20} alt="arrow icon" className="back-arrow" />
+                  Předchozí krok
+                </button>
+              </div>
+
               <button type="submit" className="submit-button">
                 Odeslat
               </button>

@@ -4,8 +4,9 @@
   font-weight: 400;
 
   color: rgba(31, 27, 27, 0.87);
-  background-color: var(--custom-ligh-blue);
+  background-color: var(--custom-light-blue);
   --custom-blue: #1975F0;
+  --custom-blue-hover: #165BB4;
   --custom-light-blue: #E6F0FC;
   --custom-light-blue-hover: #C2CCD8;
   --custom-dark-blue: #172C4A;
@@ -44,7 +45,7 @@ h2 {
   font-size: 1.5em;
   padding-top: 0;
   margin: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 button {
@@ -54,7 +55,6 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #807070;
   cursor: pointer;
   transition: border-color 0.25s;
 }
