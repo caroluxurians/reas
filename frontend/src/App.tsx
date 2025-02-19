@@ -193,7 +193,7 @@ function App() {
           <p>Děkujeme za Váš zájem.</p>
         </div>
       )}
-    </div >
+    </div>
   )
 }
 
