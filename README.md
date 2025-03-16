@@ -1,4 +1,8 @@
-# Reas - testovací task
+# Fiktivní kontaktní formulář pro realitní kancelář
+
+## O projektu
+Projekt se skládá z dvoufázového formuláře na frontendu, kde v první fázi uživatel vybere typ nemovitosti, kraj a okres a v druhé fázi zadá kontaktní údaje, které jsou validovány na frontendu a i poté na backendu.
+Data jsou po odeslání uložena do databáze MongoDB a je připraven i GET endpoint vracející celou kolekci pro kontrolu.
 
 ## Stack
 - Frontend: React s použitím Vite šablony pro React a TypeScript
@@ -13,7 +17,7 @@ Frontend s dev serverem je ve složce frontend:
 - spuštění: `npm run dev`
 Dev server pak běží na `localhost:5173`
 
-Zbuildění a spuštění frontendu, backendu i databáze:
+Build a spuštění frontendu, backendu i databáze:
 
 - `docker compose up --build -d`
 - Frontend i API pak běží na `localhost` (port 80)
